@@ -246,9 +246,9 @@
 
         <campo-dinámico>
           <center>
-            <p>Ingrese peso(kg):</p>
-          <input type="number" step="0.01" id="kg"   required  title="Kilogramos"/>
-          <label for="kg">Peso(kg)</label>
+            <p>Ingrese la distancia recorrida (d)</p>
+          <input type="number" step="0.01" id="kg"   required  title="Distancia"/>
+          <label for="d">Distancia (metros) </label>
        
           </center>
         </campo-dinámico>
@@ -256,16 +256,15 @@
         
           <campo-dinámico>
             <center>  
-            <p>Ingrese Estatura (m):</p>
-          <input type="number" step="0.01" id="m"   required  title="Metros y centimetros"/>
-          <label for="m">Estatura(m)</label>
+            <p>Ingrese el tiempo que tardo (t):</p>
+          <input type="number" step="0.01" id="m"   required  title="Tiempo"/>
+          <label for="t">Tiempo (segundos)</label>
          
         </center>
         </campo-dinámico>  
         
         <campo-dinámico>
-        <p><b>IMC: <span id="imc"></span></b></p>
-        <p><b>Lectura: <span id="lectura"></span></b></p>
+        <p><b>La velocidad es: <span id="v"></span> m/s</b></p>
         <br><br>
       </campo-dinámico>
      
@@ -276,24 +275,19 @@
 
     <script type="text/javascript">
       calc = document.getElementById("calc");
-      kg = document.getElementById("kg");
-      m = document.getElementById("m");
-      imc = document.getElementById("imc");
+      d = document.getElementById("d");
+      t = document.getElementById("t");
+      v = document.getElementById("v");
       lectura = document.getElementById("lectura");
     
       calc.onclick = function(){
-        if(kg.value!="" && m.value!=""){
-          imcx = (kg.value / (m.value* m.value));
-          imc.innerHTML = imcx
-          console.log(imcx);
-    
-          if(imcx<18.5){ lectura.innerHTML = "Peso inferior al normal"; }
-          else if(imcx>=18.5 && imcx<=24.9){ lectura.innerHTML = "Peso normal"; }
-          else if(imcx>=25 && imcx<=29.9){ lectura.innerHTML = "Peso superior al normal"; }
-          else if(imcx>30){ lectura.innerHTML = "Obesidad"; }
-    
+        if(d.value!="" && t.value!=""){
+          vf = (d.value / t.value);
+          v.innerHTML = vf
+          console.log(vf);
+        
         }else{
-          alert("Debes ingresar peso y altura.")
+          alert("Debes ingresar distancia y tiempo.")
         }
     
       };
